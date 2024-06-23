@@ -25,7 +25,7 @@ class Convolutional:
         self.name = 'Convolutional'
         self.input_shape = input_shape
         self.output_shape = tuple((self.output_size, self.output_size, self.filters))
-        self.trainable_params = np.product(self.f.shape)
+        self.trainable_params = np.prod(self.f.shape)
         '''
         To follow along the code for this layer, we use an example of:
         - input_shape = (32,32,3)
@@ -275,7 +275,7 @@ class Flatten:
         # general layer attributes:
         self.name = 'Flatten'
         self.input_shape = input_shape
-        self.output_shape = tuple((np.product(input_shape),1))
+        self.output_shape = tuple((int(np.prod(input_shape)),1))
         self.trainable_params = 0
     
     def forwardprop(self, input_arr):
@@ -296,7 +296,7 @@ class Dense:
         self.name = 'Dense'
         self.input_shape = tuple((units_in,1))
         self.output_shape = tuple((units_out,1))
-        self.trainable_params = np.product(self.weights.shape) + units_out # number of biases = units_out
+        self.trainable_params = np.prod(self.weights.shape) + units_out # number of biases = units_out
     '''
     Dense a.k.a fully-connected layer:
     - units_in and units_out are the number of input and output neurons for the layer, respectively
