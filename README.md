@@ -2,10 +2,10 @@
 
 ## About modularCNN
 
-The main purpose of this project is to efficiently facilitate the construction and implementation of CNN architectures from scratch, WITHOUT the use of existing deep learning packages such as keras or pytorch. With this library, you can experiment with building various neural network architectures for image classification, from a simple one-hidden-layer perceptron to a deep network of multiple Convolutional and Pooling layers, with the appropriate activation functions and weights initialisation strategies. Training performance is fairly efficient due to the use of fully vectorised numpy operations at the layer level, though still a little slower compared to established libraries like keras.
+This project contains modular code to efficiently build and implement CNN models from scratch, WITHOUT the use of existing deep learning packages such as keras or pytorch. With this library, you can experiment building various neural network architectures for image classification, from a simple one-hidden-layer perceptron to a deep network of multiple Convolutional and Pooling layers, with the appropriate activation functions and weights initialisation strategies. Training performance is relatively efficient for python due to the use of fully vectorised numpy operations throughout all layers, though still a little behind established libraries such as keras.
 
 ## Instalation and Use Guide
-To work with this library on your local machine, simply:
+A simple build and train example notebook is provided with the CIFAR10 dataset. Otherwise, to work with this library on your local machine, simply:
 1. Clone the repository,
 
 ```
@@ -44,7 +44,6 @@ model.summary()
 model.train(x_train, y_train, epochs=30, learn_rate=0.00001, val_size=0.1)
 # split 10% of training data for validation
 ```
-A simple build and train example with cifar10 is included!
 
 ## Important Notes
 - The current model and layers are only compatible with square images: Input feature sets x_train, x_test must be provided in shape (n,x,x,c) where n = number of sample, x = height and width of the image, and c = number of channels (c=1 for b&w, c=3 for RGB)
